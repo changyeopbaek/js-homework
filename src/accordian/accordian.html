@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../styles/accordian.css" />
+    <title>Accordian</title>
+  </head>
+  <body>
+    <a href="../../index.html"> 메인페이지로 이동하기</a>
+
+    <div
+      class="accordian-wrapper"
+      role="region"
+      aria-labelledby="accordian-header"
+    >
+      <div class="accordian__header">
+        <button
+          id="accordian-header"
+          class="accordian__header__text"
+          aria-expanded="true"
+          aria-controls="accordian-panel"
+        >
+          텍스트 바꾸기 좋은 피그마 플러그인은 뭐가 있을까요? 추천해 주세요.
+        </button>
+        <div class="accordian__header__icon__wrapper" aria-hidden="true">
+          <svg
+            class="accordian__header__icon"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M18 15L12 9L6 15"
+              stroke="black"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </div>
+      </div>
+      <div
+        id="accordian-panel"
+        class="accordian__context"
+        role="region"
+        aria-labelledby="accordian-header"
+        style="display: block"
+      >
+        font replacer를 사용해 보세요. 미리보기 기능을 지원해서 편의성
+        짱짱짱입니다.
+      </div>
+    </div>
+    <script>
+      const header = document.querySelector(".accordian__header");
+      const button = document.getElementById("accordian-header");
+      const panel = document.getElementById("accordian-panel");
+      const wrapper = document.querySelector(".accordian-wrapper");
+      const icon = document.querySelector(".accordian__header__icon");
+
+      header.addEventListener("click", function () {
+        const expanded = button.getAttribute("aria-expanded") === "true";
+        button.setAttribute("aria-expanded", !expanded);
+        panel.style.display = expanded ? "none" : "block";
+        if (expanded) {
+          wrapper.style.height = "100px";
+        } else {
+          wrapper.style.height = "156px";
+        }
+        icon.style.transform = expanded ? "rotate(180deg)" : "rotate(0deg)";
+        icon.style.transition = "transform 0.2s";
+      });
+    </script>
+  </body>
+</html>
