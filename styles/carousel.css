@@ -132,11 +132,12 @@ body {
 .game-contents-section:focus {
   outline: 1px solid rgba(32, 73, 223, 1); /* 원하는 포커스 스타일 */
   border-radius: 1px;
+  outline-offset: 2px;
 }
 
 .game-title {
   display: block;
-  height: auto;
+  height: 20px;
   font-size: 16px;
   font-weight: 700;
   color: black;
